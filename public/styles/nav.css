@@ -1,0 +1,32 @@
+nav {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+  min-height: 120px;
+  width: 100%;
+  background-color:#4056A1;
+  font-family: 'Bungee', cursive;
+ }
+
+ .logo {
+  color: #FFF;
+ }
+
+ #new-tweet-btn {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+ }
+
+ #new-tweet-btn > p {
+  margin: 0;
+  color: #FFF;
+ }
+
+ .fa-angles-down {
+  color: red;
+ }

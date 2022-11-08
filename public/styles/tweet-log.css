@@ -1,6 +1,10 @@
 article.tweet {
+  display: flex;
+  flex-flow: column;
   padding: 10px;
   border: 2px solid black;
+  margin: 50px 0;
+  width: 100%;
 }
 article.tweet:hover {
   transition: 200ms;
@@ -18,9 +22,16 @@ article.tweet header {
 article.tweet header div {
   display: flex;
   flex-flow: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  min-width: 25%;
 }
+
+article.tweet header img {
+  width: 30px;
+  height: auto;
+}
+
 article.tweet header p {
   margin: 0;
 }

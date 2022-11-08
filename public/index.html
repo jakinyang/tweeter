@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet-log.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -70,20 +71,22 @@
         </form>
       </section>
       <section class="tweet-log">
-        <article class="tweets">
+        <article class="tweet">
           <header>
             <div class="tweet-user">
               <i class="fa-regular fa-face-meh-blank"></i>
-              <p class="username"></p>
+              <p class="username">John Cena</p>
             </div>
-            <p class="user-id"></p>
+            <p class="user-id">@cantseeyou</p>
           </header>
           <p class="tweet-content">Whatever cold-pressed cardigan, gatekeep kogi street art thundercats intelligentsia.</p>
           <footer>
-            <p>10 days ago</p>
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
+            <p><span class="tweet-age">10</span> days ago</p>
+            <div class="tweet-button-group">
+              <i class="fa-solid fa-flag fa-2xs"></i>
+              <i class="fa-solid fa-retweet fa-2xs"></i>
+              <i class="fa-solid fa-heart fa-2xs"></i>
+            </div>
           </footer>
         </article>
       </section>

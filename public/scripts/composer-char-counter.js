@@ -20,5 +20,6 @@ $(document).ready(function() {
     $tweetTextArea.val('');
     $tweetTextArea.focus();
     $tweetOutput.text(140);
+    $tweetOutput.css('color', 'black');
   })
 });

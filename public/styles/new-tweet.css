@@ -1,0 +1,29 @@
+section {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.new-tweet textarea {
+  width: 100%;
+  height: 1.5em;
+  background: none;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.new-tweet textarea:focus {
+  outline: none;
+}
+
+.new-tweet div {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Bungee', cursive;
+}
+.new-tweet button {
+  background-color: #4056A1;
+  color: #FFF;
+}

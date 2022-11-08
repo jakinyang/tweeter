@@ -27,4 +27,13 @@ section {
 .new-tweet button {
   background-color: #4056A1;
   color: #FFF;
+  border: none;
+}
+.new-tweet button:hover {
+  transition: 100ms;
+  box-shadow: 3px 3px lightblue;
+}
+.new-tweet button:active {
+  background-color: #1f3068;
+  box-shadow: 3px 3px lightcyan;
 }

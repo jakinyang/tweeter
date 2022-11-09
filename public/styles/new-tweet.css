@@ -37,3 +37,7 @@ section {
   background-color: #1f3068;
   box-shadow: 3px 3px lightcyan;
 }
+
+.new-tweet output.negative {
+  color: red;
+}

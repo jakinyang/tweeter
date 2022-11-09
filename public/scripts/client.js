@@ -5,33 +5,6 @@
  */
 
 
-console.log('Client-side.js loaded');
-// Test Driver code
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 /**
  * takes a tweet string as an argument
  * returns appending html element 
@@ -66,4 +39,35 @@ const renderTweets = function(tweets) {
   }
 }
 
-renderTweets(data);
+
+$(document).ready(function() {
+  const $tweetForm = $('form');
+  // Event listener for submit button
+  $tweetForm.on('submit', function(event) {
+    event.preventDefault();
+    const tweetText = $tweetForm.serialize();
+    console.log(tweetText);
+    $.ajax({
+      method: 'POST',
+      url: '/tweets',
+      data: tweetText,
+    })
+    .then((response) => {
+      console.log('response', response);
+    })
+    .catch((err) => {
+      console.log('Error', err);
+    })
+
+    /* $.ajax({
+      method: 'GET',
+      url: '/tweets/',
+    })
+    .then((response) => {
+      console.log('response', response);
+    })
+    .catch((err) => {
+      console.log('Error', err);
+    }) */
+  })
+})

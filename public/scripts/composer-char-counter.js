@@ -8,9 +8,9 @@ $(document).ready(function() {
     const $this = $(this);
     $tweetOutput.text(140 - this.value.length);
     if($tweetOutput.text() < 0) {
-      $this.next().children('output').css('color', 'red');
+      $this.next().children('output').addClass('negative');
     } else {
-      $this.next().children('output').css('color', 'black');
+      $this.next().children('output').removeClass('negative');
     }
   })
 
@@ -20,6 +20,6 @@ $(document).ready(function() {
     $tweetTextArea.val('');
     $tweetTextArea.focus();
     $tweetOutput.text(140);
-    $tweetOutput.css('color', 'black');
+    $tweetOutput.removeClass('negative');
   })
 });

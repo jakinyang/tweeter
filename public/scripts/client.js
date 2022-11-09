@@ -6,8 +6,8 @@
 
 
 /**
- * takes a tweet string as an argument
- * returns appending html element 
+ * Takes a tweet string as an argument
+ * Returns appending html element 
 */
 const createTweetElement = function(tweet) {
   const $tweet = $(`
@@ -33,12 +33,34 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
+/**
+ * Takes array of tweet object as argument
+ * Calls createTweetElement on each tweet object and appends rendered html elements to  section.tweet-log
+ * Return undefined
+*/
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     $('.tweet-log').append(createTweetElement(tweet));
   }
 }
 
+/**
+ * Takes no arguments
+ * Uses jquery.ajax to make a get request to '/tweets'
+ */
+const loadTweets = function() {
+  $.ajax({
+    method: 'GET',
+    url: '/tweets',
+  })
+  .then((response) => {
+    console.log('Response: ', response);
+    renderTweets(response);
+  })
+  .catch((err) => {
+    console.log('Error: ', err)
+  })
+}();
 
 $(document).ready(function() {
   const $tweetForm = $('form');
@@ -46,7 +68,6 @@ $(document).ready(function() {
   $tweetForm.on('submit', function(event) {
     event.preventDefault();
     const tweetText = $tweetForm.serialize();
-    console.log(tweetText);
     $.ajax({
       method: 'POST',
       url: '/tweets',
@@ -59,15 +80,6 @@ $(document).ready(function() {
       console.log('Error', err);
     })
 
-    /* $.ajax({
-      method: 'GET',
-      url: '/tweets/',
-    })
-    .then((response) => {
-      console.log('response', response);
-    })
-    .catch((err) => {
-      console.log('Error', err);
-    }) */
+    
   })
 })

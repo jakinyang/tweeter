@@ -60,26 +60,40 @@ const loadTweets = function() {
   .catch((err) => {
     console.log('Error: ', err)
   })
-}();
+};
+
 
 $(document).ready(function() {
   const $tweetForm = $('form');
+  // AJAX request to load weets imediately upon document ready
+  loadTweets();
   // Event listener for submit button
   $tweetForm.on('submit', function(event) {
     event.preventDefault();
-    const tweetText = $tweetForm.serialize();
+    const tweetText = $(this).serialize();
+    if (tweetText.length > 140 || tweetText.length <= 0) {
+      event.preventDefault();
+      return window.alert('Invalid tweet length');
+    }
+    if (!$tweetForm.val()) {
+      event.preventDefault();
+      return window.alert('Invalid tweet length');
+    }
     $.ajax({
       method: 'POST',
       url: '/tweets',
       data: tweetText,
     })
-    .then((response) => {
-      console.log('response', response);
-    })
-    .catch((err) => {
-      console.log('Error', err);
-    })
-
-    
+      .then((response) => {
+        console.log('response', response);
+        $tweetTextArea.val('');
+        $tweetTextArea.focus();
+        $tweetOutput.text(140);
+        $tweetOutput.removeClass('negative');
+        loadTweets();
+      })
+      .catch((err) => {
+        console.log('Error', err);
+      })
   })
 })

@@ -13,13 +13,4 @@ $(document).ready(function() {
       $this.next().children('output').removeClass('negative');
     }
   })
-
-  // Event listener for submit button
-  $tweetForm.on('submit', function(event) {
-    event.preventDefault();
-    $tweetTextArea.val('');
-    $tweetTextArea.focus();
-    $tweetOutput.text(140);
-    $tweetOutput.removeClass('negative');
-  })
 });

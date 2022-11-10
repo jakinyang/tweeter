@@ -32,3 +32,12 @@ nav {
  .fa-angles-down {
   color: red;
  }
+
+
+.fa-angles-down:hover {
+  transform: scale(1.5);
+}
+
+.fa-angles-down:active {
+  color: white;
+}

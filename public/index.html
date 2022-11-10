@@ -61,7 +61,6 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form method="post" action="/tweets/">
           <label for="tweet-text"></label>
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
@@ -71,10 +70,11 @@
           </div>
         </form>
         <p class="warning warning-empty">⚠ Cannot tweet empty tweet ⚠</p>
-        <p class="warning warning-long">⚠ Cannot tweet empty tweet ⚠</p>
+        <p class="warning warning-long">⚠ Tweet too long ⚠</p>
       </section>
       <section class="tweet-log">
       </section>
+      <button id="scroll"><i class="fa-solid fa-angles-up"></i></button>
     </main>
   </body>
 </html>

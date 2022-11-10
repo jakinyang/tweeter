@@ -1,7 +1,6 @@
 $(document).ready(function() {
-  const $tweetForm = $('form');
   const $tweetTextArea = $('textarea');
-  let $tweetOutput = $('output');
+  const $tweetOutput = $('output');
 
   // Event listener for text input field
   $tweetTextArea.on('input', function() {

@@ -40,7 +40,7 @@ const createTweetElement = function(tweet) {
 */
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
-    $('.tweet-log').append(createTweetElement(tweet));
+    $('.tweet-log').prepend(createTweetElement(tweet));
   }
 }
 
@@ -65,19 +65,21 @@ const loadTweets = function() {
 
 $(document).ready(function() {
   const $tweetForm = $('form');
+  const $tweetTextArea = $('textarea');
+  const $tweetOutput = $('output');
   // AJAX request to load weets imediately upon document ready
   loadTweets();
   // Event listener for submit button
   $tweetForm.on('submit', function(event) {
     event.preventDefault();
     const tweetText = $(this).serialize();
-    if (tweetText.length > 140 || tweetText.length <= 0) {
+    if (tweetText.length > 145) {
       event.preventDefault();
-      return window.alert('Invalid tweet length');
+      return window.alert('Tweet too long!');
     }
-    if (!$tweetForm.val()) {
+    if (tweetText.length <= 5) {
       event.preventDefault();
-      return window.alert('Invalid tweet length');
+      return window.alert('Cannot tweet empty tweet!');
     }
     $.ajax({
       method: 'POST',

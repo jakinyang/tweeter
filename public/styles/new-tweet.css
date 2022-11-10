@@ -42,15 +42,14 @@ section {
   color: red;
 }
 
-.new-tweet p.warning {
-  color: red;
-}
-
 .warning {
   display: none;
   border: 2px solid red;
+  color: red;
+  text-align: center;
 }
 
-.hide {
-  display: contents;
+.transition {
+  display: none;
+  transition: 1s;
 }

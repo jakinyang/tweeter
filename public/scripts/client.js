@@ -75,17 +75,43 @@ $(document).ready(function() {
   const $tweetOutput = $('output');
   // AJAX request to load weets imediately upon document ready
   loadTweets();
+
+  // Scroll button toggle handler
+  $(window).scroll(function() {
+    if ($(this).scrollTop()) {
+      $('#scroll').fadeIn();
+      $( '#new-tweet-btn' ).fadeOut();
+    } else {
+      $( '#new-tweet-btn' ).fadeIn();
+      $('#scroll').fadeOut();
+    }
+  });
+
+  $("#scroll").click(function() {
+    $("html, body").animate({scrollTop: 0}, 1000);
+  });
+
+  // New-tweet toggle handler
+  $('.fa-angles-down').on('click', function() {
+    if ( $( '.new-tweet' ).first().is( ":hidden" ) ) {
+      $( '.new-tweet' ).slideDown( "slow" );
+    } else {
+      $( '.new-tweet' ).hide("slow");
+    }
+  })
   // Event listener for submit button
   $tweetForm.on('submit', function(event) {
     event.preventDefault();
     const tweetText = $(this).serialize();
     if (tweetText.length > 145) {
       event.preventDefault();
-      return $('.warning-long').addClass('hide');
+      $('.warning-empty').hide();
+      return $('.warning-long').slideDown( "slow" );
     }
     if (tweetText.length <= 5) {
       event.preventDefault();
-      return $('.warning-empty').addClass('hide');
+      $('.warning-long').hide();
+      return $('.warning-empty').slideDown( "slow" );
     }
     $.ajax({
       method: 'POST',
@@ -98,7 +124,7 @@ $(document).ready(function() {
         $tweetTextArea.focus();
         $tweetOutput.text(140);
         $tweetOutput.removeClass('negative');
-        $('.warning').removeClass('hide');
+        $('.warning').hide();
         loadTweets();
       })
       .catch((err) => {

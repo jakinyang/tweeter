@@ -24,15 +24,19 @@ article.tweet header div {
   flex-flow: row;
   justify-content: space-between;
   align-items: center;
-  min-width: 25%;
 }
 
-article.tweet header img {
-  width: 30px;
+article.tweet img {
+  width: 40px;
   height: auto;
 }
 
-article.tweet header p {
+article.tweet .user-name {
+  margin: 0 10%;
+  width: auto;
+}
+
+article.tweet .user-handle {
   margin: 0;
 }
 
@@ -59,8 +63,7 @@ article.tweet footer div {
   flex-flow: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 20%;
-  height: 16px;
+  margin: 0 5%;
 }
 
 article.tweet footer p {
@@ -69,6 +72,7 @@ article.tweet footer p {
 
 article.tweet footer i {
   color: #4056A1;
+  margin: 0 10%;
 }
 
 article.tweet footer i:hover {

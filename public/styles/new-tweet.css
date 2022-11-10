@@ -41,3 +41,12 @@ section {
 .new-tweet output.negative {
   color: red;
 }
+
+.new-tweet p.warning {
+  display: none;
+  color: red;
+}
+
+.display {
+  display: contents;
+}

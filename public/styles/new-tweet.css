@@ -43,10 +43,13 @@ section {
 }
 
 .new-tweet p.warning {
-  display: none;
   color: red;
 }
 
-.display {
+.warning {
+  display: none;
+}
+
+.hide {
   display: contents;
 }

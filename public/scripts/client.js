@@ -5,6 +5,12 @@
  */
 
 
+const makeStringSafe = function (string) {
+  let span = document.createElement("span");
+  span.appendChild(document.createTextNode(string));
+  return span.innerHTML;
+};
+
 /**
  * Takes a tweet string as an argument
  * Returns appending html element 
@@ -19,7 +25,7 @@ const createTweetElement = function(tweet) {
         </div>
         <p class="user-handle">${tweet.user.handle}</p>
       </header>
-      <p class="tweet-content">${tweet.content.text}</p>
+      <p class="tweet-content">${makeStringSafe(tweet.content.text)}</p>
       <footer>
         <p class="tweet-age">${timeago.format(tweet.created_at)}</p>
         <div class="tweet-button-group">
@@ -75,11 +81,11 @@ $(document).ready(function() {
     const tweetText = $(this).serialize();
     if (tweetText.length > 145) {
       event.preventDefault();
-      return window.alert('Tweet too long!');
+      return $('.warning-long').addClass('hide');
     }
     if (tweetText.length <= 5) {
       event.preventDefault();
-      return window.alert('Cannot tweet empty tweet!');
+      return $('.warning-empty').addClass('hide');
     }
     $.ajax({
       method: 'POST',
@@ -92,6 +98,7 @@ $(document).ready(function() {
         $tweetTextArea.focus();
         $tweetOutput.text(140);
         $tweetOutput.removeClass('negative');
+        $('.warning').removeClass('hide');
         loadTweets();
       })
       .catch((err) => {

@@ -95,6 +95,7 @@ $(document).ready(function() {
   $('.fa-angles-down').on('click', function() {
     if ($('.new-tweet').first().is(":hidden")) {
       $('.new-tweet').slideDown("slow");
+      $tweetTextArea.focus();
     } else {
       $('.new-tweet').hide("slow");
     }

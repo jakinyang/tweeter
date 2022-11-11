@@ -42,15 +42,14 @@ main {
 
 #scroll {
   position: fixed;
-  bottom: 2vw;
-  right: 2vw;
+  bottom: 1vw;
+  right: 1vw;
   align-self: flex-end;
-  min-height: 7vw;
-  min-width: 7vw;
+  height: 50px;
+  width: 50px;
   padding: 1vw;
   border-radius: 50px;
   border: none;
-  margin: 2vw;
   color: white;
   background-color: #4056A1;
 }

@@ -24,39 +24,43 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- body {
+body {
   display: flex;
   flex-flow: column;
   align-items: center;
- }
+}
  
- main {
+main {
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 90%;
+  justify-content: center;
+  width: 100%;
+}
 
- }
+/* Scroll Button styling */
 
- #scroll {
+#scroll {
   position: fixed;
   bottom: 2vw;
+  right: 2vw;
   align-self: flex-end;
-  height: 7vw;
-  width: 7vw;
-  border-radius: 100px;
+  min-height: 7vw;
+  min-width: 7vw;
+  padding: 1vw;
+  border-radius: 50px;
   border: none;
   margin: 2vw;
   color: white;
   background-color: #4056A1;
- }
+}
 
- #scroll i:hover {
+#scroll i:hover {
   transform: scale(1.3);
   transition: 100ms;
- }
+}
 
- #scroll i:active {
+#scroll i:active {
   transform: scale(1);
   transition: 100ms;
 }

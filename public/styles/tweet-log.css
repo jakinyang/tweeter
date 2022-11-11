@@ -3,8 +3,9 @@ article.tweet {
   flex-flow: column;
   padding: 10px;
   border: 2px solid black;
-  margin: 50px 0;
+  margin: 0 0 50px 0;
   width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 article.tweet:hover {
   transition: 200ms;
@@ -16,24 +17,28 @@ article.tweet header {
   flex-flow: row;
   justify-content: space-between;
   width: 100%;
-  height: 30px;
-}
-
-article.tweet header div {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-article.tweet img {
-  width: 40px;
   height: auto;
 }
 
+article.tweet div.user {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  height: auto;
+}
+
+article.tweet img {
+  display: inline;
+  height: 40px;
+  width: 40px;
+  margin: 0;
+}
+
 article.tweet .user-name {
-  margin: 0 10%;
-  width: auto;
+  display: inline;
+  margin: 0;
 }
 
 article.tweet .user-handle {

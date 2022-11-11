@@ -48,32 +48,29 @@
       </div>
     </nav>
 
-    <!-- Header  -->
-    <header>
-      <div>
-        <img src="/images/profile-hex.png" alt="User Profile Image">
-      </div>
-      <br>
-      <div>
-        <h2>User</h2>
-      </div>
-    </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
-        <form method="post" action="/tweets/">
-          <label for="tweet-text"></label>
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-        <p class="warning warning-empty">⚠ Cannot tweet empty tweet ⚠</p>
-        <p class="warning warning-long">⚠ Tweet too long ⚠</p>
-      </section>
-      <section class="tweet-log">
-      </section>
+      <!-- Header  -->
+      <header class="hero">
+        <img src="/images/profile-hex.png" alt="User Profile Image">
+        <p><strong>Jon</strong> Boo</p>
+      </header>
+      <div class="tweets">
+        <section class="new-tweet">
+          <form method="post" action="/tweets/">
+            <label for="tweet-text"></label>
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+          <p class="warning warning-empty">⚠ Cannot tweet empty tweet ⚠</p>
+          <p class="warning warning-long">⚠ Tweet too long ⚠</p>
+        </section>
+        <section class="tweet-log">
+        </section>
+      </div>
       <button id="scroll"><i class="fa-solid fa-angles-up"></i></button>
     </main>
   </body>

@@ -1,11 +1,57 @@
-nav + header {
+.hero {
   display: flex;
   flex-flow: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  margin-top: 120px;
-  height: 400px;
   width: 100%;
-  background-color: lightgray;
+  height: auto;
+  background-color: coral;
   background-image: url("https://www.transparenttextures.com/patterns/argyle.png");
+  font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
 }
+
+.hero img {
+  margin-top: 20vh;
+  height: auto;
+  width: 120px;
+}
+
+.hero p {
+  margin: 10% 0;
+  height: auto;
+  width: auto;
+  color: #FFF;
+}
+
+/* Tablet and desktop styling  */
+@media only screen and (min-width: 421px) {
+  /* Write Tablet only CSS here */
+  main {
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 80px;
+  }
+  .hero {
+    position: sticky;
+    top: 100px;
+    flex: 1;
+    margin: 7vh 5vw;
+    padding-top: 0vh;
+    max-width: 33vw;
+  }
+
+  .hero img {
+    margin-top: 15%;
+    max-height: 33%;
+  }
+  
+  .hero p {
+    margin-top: 0;
+  }
+  .tweets {
+    flex: 2;
+  }
+}
+

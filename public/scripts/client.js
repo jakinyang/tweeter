@@ -50,18 +50,24 @@ const renderTweets = function(tweets) {
   }
 };
 
+const renderLast = function (tweets) {
+  const keysArr = Object.keys(tweets);
+  const lastKey = keysArr[keysArr.length - 1]
+  $('.tweet-log').prepend(createTweetElement(tweets[lastKey]));
+}
+
 /**
  * Takes no arguments
  * Uses jquery.ajax to make a get request to '/tweets'
  */
-const loadTweets = function() {
+const loadTweets = function(callback) {
   $.ajax({
     method: 'GET',
     url: '/tweets',
   })
     .then((response) => {
       console.log('Response: ', response);
-      renderTweets(response);
+      callback(response);
     })
     .catch((err) => {
       console.log('Error: ', err);
@@ -74,7 +80,7 @@ $(document).ready(function() {
   const $tweetTextArea = $('textarea');
   const $tweetOutput = $('output');
   // AJAX request to load weets imediately upon document ready
-  loadTweets();
+  loadTweets(renderTweets);
 
   // Scroll button toggle handler
   $(window).scroll(function() {
@@ -126,7 +132,7 @@ $(document).ready(function() {
         $tweetOutput.text(140);
         $tweetOutput.removeClass('negative');
         $('.warning').hide();
-        loadTweets();
+        loadTweets(renderLast);
       })
       .catch((err) => {
         console.log('Error', err);

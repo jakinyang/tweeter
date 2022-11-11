@@ -38,6 +38,12 @@ main {
   width: 100%;
 }
 
+/* tweets section */
+
+.tweets {
+  max-width: 700px;
+}
+
 /* Scroll Button styling */
 
 #scroll {

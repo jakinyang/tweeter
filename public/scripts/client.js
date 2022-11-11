@@ -5,7 +5,7 @@
  */
 
 
-const makeStringSafe = function (string) {
+const makeStringSafe = function(string) {
   let span = document.createElement("span");
   span.appendChild(document.createTextNode(string));
   return span.innerHTML;
@@ -13,7 +13,7 @@ const makeStringSafe = function (string) {
 
 /**
  * Takes a tweet string as an argument
- * Returns appending html element 
+ * Returns appending html element
 */
 const createTweetElement = function(tweet) {
   const $tweet = $(`
@@ -37,7 +37,7 @@ const createTweetElement = function(tweet) {
     </article>
   `);
   return $tweet;
-}
+};
 
 /**
  * Takes array of tweet object as argument
@@ -48,7 +48,7 @@ const renderTweets = function(tweets) {
   for (let tweet of tweets) {
     $('.tweet-log').prepend(createTweetElement(tweet));
   }
-}
+};
 
 /**
  * Takes no arguments
@@ -59,13 +59,13 @@ const loadTweets = function() {
     method: 'GET',
     url: '/tweets',
   })
-  .then((response) => {
-    console.log('Response: ', response);
-    renderTweets(response);
-  })
-  .catch((err) => {
-    console.log('Error: ', err)
-  })
+    .then((response) => {
+      console.log('Response: ', response);
+      renderTweets(response);
+    })
+    .catch((err) => {
+      console.log('Error: ', err);
+    });
 };
 
 
@@ -80,9 +80,9 @@ $(document).ready(function() {
   $(window).scroll(function() {
     if ($(this).scrollTop()) {
       $('#scroll').fadeIn();
-      $( '#new-tweet-btn' ).fadeOut();
+      $('#new-tweet-btn').fadeOut();
     } else {
-      $( '#new-tweet-btn' ).fadeIn();
+      $('#new-tweet-btn').fadeIn();
       $('#scroll').fadeOut();
     }
   });
@@ -93,12 +93,12 @@ $(document).ready(function() {
 
   // New-tweet toggle handler
   $('.fa-angles-down').on('click', function() {
-    if ( $( '.new-tweet' ).first().is( ":hidden" ) ) {
-      $( '.new-tweet' ).slideDown( "slow" );
+    if ($('.new-tweet').first().is(":hidden")) {
+      $('.new-tweet').slideDown("slow");
     } else {
-      $( '.new-tweet' ).hide("slow");
+      $('.new-tweet').hide("slow");
     }
-  })
+  });
   // Event listener for submit button
   $tweetForm.on('submit', function(event) {
     event.preventDefault();
@@ -106,12 +106,12 @@ $(document).ready(function() {
     if (tweetText.length > 145) {
       event.preventDefault();
       $('.warning-empty').hide();
-      return $('.warning-long').slideDown( "slow" );
+      return $('.warning-long').slideDown("slow");
     }
     if (tweetText.length <= 5) {
       event.preventDefault();
       $('.warning-long').hide();
-      return $('.warning-empty').slideDown( "slow" );
+      return $('.warning-empty').slideDown("slow");
     }
     $.ajax({
       method: 'POST',
@@ -129,6 +129,6 @@ $(document).ready(function() {
       })
       .catch((err) => {
         console.log('Error', err);
-      })
-  })
-})
+      });
+  });
+});

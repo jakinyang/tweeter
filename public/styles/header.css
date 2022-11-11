@@ -25,7 +25,7 @@
 }
 
 /* Tablet and desktop styling  */
-@media only screen and (min-width: 421px) {
+@media only screen and (min-width: 768px) {
   /* Write Tablet only CSS here */
   main {
     flex-flow: row;
@@ -33,6 +33,7 @@
     align-items: flex-start;
     margin-top: 80px;
   }
+
   .hero {
     position: sticky;
     top: 100px;
@@ -51,6 +52,7 @@
     margin-top: 0;
   }
   .tweets {
+    min-width: 300px;
     flex: 2;
   }
 }

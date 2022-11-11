@@ -29,7 +29,7 @@ article.tweet div.user {
   flex-flow: row;
   justify-content: space-around;
   align-items: center;
-  min-width: 40%;
+  min-width: 100px;
   height: auto;
 }
 
@@ -42,7 +42,7 @@ article.tweet img {
 
 article.tweet .user-name {
   display: inline;
-  margin: 0;
+  margin: 0 0 0 10px;
 }
 
 article.tweet .user-handle {
